@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success">New Recipe</button>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="list-group">
+        <app-recipe-item
+          *ngFor="let recipe of recipes"
+          [recipeName]="recipe.name"
+          [recipeDesc]="recipe.description"
+          [recipeImgPath]="recipe.imagePath"
+        ></app-recipe-item>
+      </div>
+    </div>
+  </div>
+</div>
