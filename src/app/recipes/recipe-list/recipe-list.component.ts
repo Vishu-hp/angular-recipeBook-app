@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,20 +7,39 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent implements OnInit {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+  currentRecipeName: string;
+
   recipes: Recipe[] = [
     new Recipe(
-      'A Test Recipe',
-      'This recipe is for testing only',
-      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5503fd01-2819-4ab8-9d25-4dfc9c9cfdfa/dgihjkq-675dc5b9-0357-4777-b7f0-8f4356f1d87f.jpg/v1/fit/w_375,h_375,q_70,strp/garlic_confit_with_baguette_slices_by_vulcanknight_dgihjkq-375w.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzU1MDNmZDAxLTI4MTktNGFiOC05ZDI1LTRkZmM5YzljZmRmYVwvZGdpaGprcS02NzVkYzViOS0wMzU3LTQ3NzctYjdmMC04ZjQzNTZmMWQ4N2YuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ZfyIJCd8lTNH0AesocHcRSUDtwNzekWyonrqDbdItw0'
+      'A Test Recipe Messi',
+      'This recipe is for Messi',
+      'https://www.fcbarcelona.com/photo-resources/2020/04/30/43337a9f-3781-4886-948c-f70912e4b1af/1920x1080_Messi_primerGol-min.jpg?width=1200&height=750'
     ),
     new Recipe(
-      'A Test Recipe',
-      'This recipe is for testing only',
-      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5503fd01-2819-4ab8-9d25-4dfc9c9cfdfa/dgihjkq-675dc5b9-0357-4777-b7f0-8f4356f1d87f.jpg/v1/fit/w_375,h_375,q_70,strp/garlic_confit_with_baguette_slices_by_vulcanknight_dgihjkq-375w.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzU1MDNmZDAxLTI4MTktNGFiOC05ZDI1LTRkZmM5YzljZmRmYVwvZGdpaGprcS02NzVkYzViOS0wMzU3LTQ3NzctYjdmMC04ZjQzNTZmMWQ4N2YuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ZfyIJCd8lTNH0AesocHcRSUDtwNzekWyonrqDbdItw0'
+      'A Test Recipe Cristiano',
+      'This recipe is for Cristiano',
+      'https://assets.manutd.com/AssetPicker/images/0/0/10/126/687707/Legends-Profile_Cristiano-Ronaldo1523460877263.jpg'
+    ),
+    new Recipe(
+      'A Test Recipe Kobe',
+      'This recipe is for Kobe',
+      'https://i.pinimg.com/736x/f7/4b/6d/f74b6d7459a5c9f82057186147ddfbe6.jpg'
+    ),
+    new Recipe(
+      'A Test Recipe Jordan',
+      'This recipe is for Jordan',
+      'https://cdn.nba.com/manage/2021/08/michael-jordan-looks.jpg'
     ),
   ];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onRecipeSelected(recipe: Recipe) {
+    console.log('recipe list', recipe);
+    this.currentRecipeName = recipe.name;
+    this.recipeWasSelected.emit(recipe);
+  }
 }

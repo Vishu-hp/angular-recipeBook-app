@@ -1,15 +1,25 @@
-<a href="#" class="list-group-item list-group-item-action clearfix">
-  <div class="float-lg-left mr-lg-5">
-    <h4>{{ recipeName }}</h4>
-    <p>{{ recipeDesc }}</p>
+<a
+  href="#"
+  class="list-group-item list-group-item-action clearfix"
+  (click)="onSelected()"
+  [ngClass]="currentRecipeName == recipe.name ? 'active' : ''"
+>
+  <div class="row">
+    <div class="col-10">
+      <div class="float-lg-left mr-lg-5">
+        <h4>{{ recipe.name }}</h4>
+        <p>{{ recipe.description }}</p>
+      </div>
+    </div>
+    <div class="col-2">
+      <span class="float-lg-right">
+        <img
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive"
+          style="height: 50px; width: 70px"
+        />
+      </span>
+    </div>
   </div>
-
-  <span class="float-lg-right">
-    <img
-      [src]="recipeImgPath"
-      alt="{{ recipeName }}"
-      class="img-responsive"
-      style="height: 50px"
-    />
-  </span>
 </a>

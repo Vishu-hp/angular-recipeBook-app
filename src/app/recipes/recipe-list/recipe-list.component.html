@@ -11,10 +11,10 @@
     <div class="col-xs-12">
       <div class="list-group">
         <app-recipe-item
-          *ngFor="let recipe of recipes"
-          [recipeName]="recipe.name"
-          [recipeDesc]="recipe.description"
-          [recipeImgPath]="recipe.imagePath"
+          *ngFor="let recipeEl of recipes"
+          [recipe]="recipeEl"
+          (recipeSelected)="onRecipeSelected(recipeEl)"
+          [currentRecipeName]="currentRecipeName"
         ></app-recipe-item>
       </div>
     </div>
