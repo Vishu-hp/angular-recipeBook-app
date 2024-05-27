@@ -13,4 +13,8 @@ export class HeaderComponent {
     this.featureSelected.emit(feature);
     this.currentTab = feature;
   }
+
+  func2(event) {
+    event.stopPropagation();
+  }
 }
