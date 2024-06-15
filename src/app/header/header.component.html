@@ -1,8 +1,10 @@
 <nav
-  class="navbar navbar-expand-lg navbar-light navbar-light pl-5"
-  style="background-color: #e3f2fd"
+  class="navbar navbar-expand-lg navbar-dark bg-dark pl-5"
+  style="background-color: #dae3ea"
 >
-  <a class="navbar-brand" routerLink="/recipes">Recipe Book</a>
+  <a class="navbar-brand" routerLink="/recipes" routerLinkActive="active"
+    >Recipe Book</a
+  >
   <button
     class="navbar-toggler"
     type="button"
@@ -16,28 +18,26 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav d-lg-flex justify-content-between">
+    <ul class="navbar-nav nav d-lg-flex justify-content-between">
       <div class="d-lg-flex">
-        <li
-          class="nav-item pl-lg-2"
-          (click)="onSelect('recipe')"
-          [ngClass]="{ active: currentTab == 'recipe' }"
-        >
-          <a class="nav-link" routerLink="/recipes">Recipes</a>
+        <li class="nav-item pl-lg-2">
+          <a class="nav-link" routerLink="/recipes" routerLinkActive="active"
+            >Recipes</a
+          >
         </li>
-        <li
-          class="nav-item pl-lg-3"
-          (click)="onSelect('shopping-list')"
-          [ngClass]="{ active: currentTab == 'shopping-list' }"
-        >
-          <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+        <li class="nav-item pl-lg-3">
+          <a
+            class="nav-link"
+            routerLink="/shopping-list"
+            routerLinkActive="active"
+            >Shopping List</a
+          >
         </li>
       </div>
       <div class="pr-4">
         <li class="nav-item dropdown open" appDropdown>
           <a
             class="nav-link dropdown-toggle"
-            href="#"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -47,8 +47,8 @@
             Manage
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Save Data</a>
-            <a class="dropdown-item" href="#">Fetch Data</a>
+            <a class="dropdown-item">Save Data</a>
+            <a class="dropdown-item">Fetch Data</a>
           </div>
         </li>
       </div>
