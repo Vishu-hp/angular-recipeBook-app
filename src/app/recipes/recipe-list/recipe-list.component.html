@@ -13,8 +13,7 @@
         <app-recipe-item
           *ngFor="let recipeEl of recipes; let i = index"
           [recipe]="recipeEl"
-          (selectedRecipe)="recipeSelected(i)"
-          [currentRecipeName]="currentRecipeName"
+          [index]="i"
         ></app-recipe-item>
       </div>
     </div>
